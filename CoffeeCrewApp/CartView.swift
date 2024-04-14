@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CartView: View {
+    @State private var coffeeManager = CoffeeManager()
+    
+    
     var body: some View {
         VStack {
             //Spacer()
@@ -45,10 +48,18 @@ struct CartView: View {
     
     private var cartItems: some View {
         HStack {
-            Spacer()
-            VStack {
-                Text("store name #1:\n - list of items\n")
-                Text("store name #2:\n - list of items")
+            //Spacer()
+            VStack (alignment: .leading){
+                ForEach(CoffeeSampleData.stores) { store in
+                    VStack (alignment: .leading){
+                        Text("\(store.name):")
+                        ForEach(store.items.sorted(by: <), id: \.key) { item, price in
+                            Text("• \(item): $\(price, specifier: "%.2f")")
+                                .font(.custom("Menlo-Regular", size: 15))
+                        }
+                        Text("\n")
+                    }
+                }
             }
             Spacer()
         }
@@ -61,7 +72,8 @@ struct CartView: View {
     }
     
     private var cartTotal: some View {
-        Text("total: $20.00")
+        let total = calculateTotal()
+        return Text("Total: $\(total, specifier: "%.2f")")
             .foregroundColor(Color.black)
             .padding()
             .font(.custom("Menlo-Regular", size: 15))
@@ -125,6 +137,18 @@ struct CartView: View {
         //.font(.system(size: 40, weight: .light))
         .background(.brown.opacity (0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
+    }
+    
+    private func calculateTotal() -> Double {
+        var totalPrice = 0.0
+        
+        for store in coffeeManager.coffeeStores {
+            for (_, price) in store.items {
+                totalPrice += price
+            }
+        }
+        
+        return totalPrice
     }
 }
 
