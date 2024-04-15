@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
+    init(){
+        UINavigationBar.setAnimationsEnabled(false)
+        
+    }
+    
     var body: some View {
-        ZStack {
-            Color.brown.opacity(0.3).edgesIgnoringSafeArea(.all)
-            VStack {
-                Spacer()
-                welcomeTitle
-                Spacer()
-                enterButton
-                Spacer()
+        NavigationView {
+            ZStack {
+                Color.brown.opacity(0.3).edgesIgnoringSafeArea(.all)
+                VStack {
+                    Spacer()
+                    welcomeTitle
+                    Spacer()
+                    enterButton
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
+            
         }
     }
     
@@ -27,29 +36,30 @@ struct WelcomeView: View {
             Spacer()
             Text("coffee crew")
             Spacer()
-            
         }
         .foregroundColor(Color.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 40))
-        .background(.brown.opacity (0.4))
+        .background(Color.brown.opacity(0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
     
     private var enterButton: some View {
-        HStack {
-            Button(action: {
-                
-            }) {
+        NavigationLink(destination: 
+                        LogInView()
+                            .navigationBarBackButtonHidden(true)
+        ){
+            HStack {
                 Text("enter")
                     .padding()
             }
+            .foregroundColor(Color.black)
+            .padding()
+            .font(.custom("Menlo-Regular", size: 40))
+            .background(Color.brown.opacity(0.4))
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            
         }
-        .foregroundColor(Color.black)
-        .padding()
-        .font(.custom("Menlo-Regular", size: 40))
-        .background(.brown.opacity (0.4))
-        .clipShape(RoundedRectangle(cornerRadius: 30))
     }
 }
 
