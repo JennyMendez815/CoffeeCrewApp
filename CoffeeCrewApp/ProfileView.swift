@@ -13,6 +13,13 @@ struct ProfileView: View {
         VStack {
             profileTitle
             Spacer()
+            Circle()
+            .frame(width: 200, height: 300)
+            .foregroundColor(.clear)
+            .overlay(
+                Circle()
+                    .stroke(Color.black, lineWidth: 2)
+            )
             profileInfo
             Spacer()
             stats
