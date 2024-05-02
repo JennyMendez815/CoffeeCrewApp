@@ -12,7 +12,7 @@ struct CoffeeCrewAppApp: App {
     var body: some Scene {
         WindowGroup {
             ProfileView()
-            //WelcomeView()
+            //TimelineView()
         }
     }
 }

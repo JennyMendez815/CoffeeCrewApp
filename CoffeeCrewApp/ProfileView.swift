@@ -13,24 +13,24 @@ struct ProfileView: View {
         VStack {
             profileTitle
             Spacer()
-            Circle()
-            .frame(width: 200, height: 300)
-            .foregroundColor(.clear)
-            .overlay(
-                Circle()
-                    .stroke(Color.black, lineWidth: 2)
-            )
+            
+            //Spacer()
             profileInfo
             Spacer()
             stats
             Spacer()
             profileActions
+            Spacer()
+            buttons
+            //Spacer()
         }
         .padding()
+        //.padding(.vertical)
         .background(Color.brown.opacity(0.3))
     }
     
     private var profileTitle: some View {
+        
         HStack {
             Spacer()
             Text("profile")
@@ -44,20 +44,31 @@ struct ProfileView: View {
     }
     
     private var profileInfo: some View {
-        //
-        VStack(alignment: .leading) {
-            Spacer()
+        VStack {
+            GeometryReader { geometry in
+                Image("profile_pic") // Use the name of your image asset
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                    .padding(.top, geometry.safeAreaInsets.top) // Adjust top padding
+                    .alignmentGuide(HorizontalAlignment.center) { _ in
+                        (geometry.size.width - 200) / 2 // Center horizontally
+                    }
+                    .alignmentGuide(VerticalAlignment.center) { _ in
+                        (geometry.size.height - 200) / 2 // Center vertically
+                    }
+            }
+            .frame(maxWidth: .infinity) // Expand the image to fill the available width
             Text("first last")
                 .font(.custom("Menlo-Regular", size: 30))
             Text("@username")
                 .font(.custom("Menlo-Regular", size: 30))
+            Spacer() // Pushes the text views to the top
         }
-        //.foregroundColor(.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 20))
-        //.background(Color.blue.opacity(0.2))
-        //.clipShape(RoundedRectangle(cornerRadius: 30))
     }
+
     
     private var stats: some View {
         VStack(alignment: .leading) {
@@ -67,18 +78,14 @@ struct ProfileView: View {
                 .font(.custom("Menlo-Regular", size: 20))
             Text("# of coffees had ___ ")
                 .font(.custom("Menlo-Regular", size: 20))
-            Spacer()
             Text("contact info")
                 .font(.custom("Menlo-Regular", size: 20))
-            Text("email:email@berkeley.edu")
+            Text("email: email@berkeley.edu")
                 .font(.custom("Menlo-Regular", size: 20))
             Text("phone: (123) 456-7890")
                 .font(.custom("Menlo-Regular", size: 20))
-            Spacer()
-
             Text("favorite coffee: ____ ")
                 .font(.custom("Menlo-Regular", size: 20))
-
         }
         .foregroundColor(.black)
         .padding()
@@ -88,20 +95,45 @@ struct ProfileView: View {
     }
     
     private var profileActions: some View {
+        Button(action: {
+            // Perform action for logging out
+        }) {
+            Text("Log Out")
+        }
+        .foregroundColor(.black)
+        .padding()
+        .font(.custom("Menlo-Regular", size: 20))
+        .background(Color.brown.opacity(0.4))
+        .clipShape(RoundedRectangle(cornerRadius: 30))
+    }
+    
+    private var buttons: some View {
         HStack {
+            Button(action: {
+                // Navigate to HomeView
+            }) {
+                Image(systemName: "house.fill")
+            }
+            Spacer()
+            Image(systemName: "cart.fill")
             Spacer()
             Button(action: {
-                // Perform action for editing profile
+                // Navigate to SearchView
             }) {
-                Text("log out")
+                Image(systemName: "magnifyingglass")
             }
-            .foregroundColor(.black)
-            .padding()
-            .font(.custom("Menlo-Regular", size: 20))
-            .background(Color.brown.opacity(0.4))
-            .clipShape(RoundedRectangle(cornerRadius: 30))
             Spacer()
+            Button(action: {
+                // Navigate to ProfileView
+            }) {
+                Image(systemName: "person.fill")
+            }
         }
+        .foregroundColor(Color.black)
+        .padding()
+        .font(.custom("Menlo-Regular", size: 40))
+        .background(.brown.opacity (0.4))
+        .clipShape(RoundedRectangle(cornerRadius: 30))
     }
 }
 

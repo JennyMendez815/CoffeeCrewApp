@@ -15,12 +15,12 @@
 		2C99DDF72BC5D89F00FB17DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDF62BC5D89F00FB17DD /* HomeView.swift */; };
 		2C99DDF92BC5D8C100FB17DD /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDF82BC5D8C100FB17DD /* CartView.swift */; };
 		2C99DDFB2BC5D8D500FB17DD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDFA2BC5D8D500FB17DD /* SearchView.swift */; };
-		2C99DDFD2BC5D8E300FB17DD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDFC2BC5D8E300FB17DD /* ProfileView.swift */; };
 		2C99DDFF2BC5D96700FB17DD /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDFE2BC5D96700FB17DD /* WelcomeView.swift */; };
 		2C99DE012BC5D97A00FB17DD /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DE002BC5D97A00FB17DD /* LogInView.swift */; };
 		2CBD729B2BCB4D8F004857A7 /* CoffeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBD729A2BCB4D8F004857A7 /* CoffeeManager.swift */; };
 		2CBD729D2BCB4DA9004857A7 /* CoffeeSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBD729C2BCB4DA9004857A7 /* CoffeeSampleData.swift */; };
 		2CBD729F2BCB4DC0004857A7 /* CoffeeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBD729E2BCB4DC0004857A7 /* CoffeeStore.swift */; };
+		5624A7892BE430B3002462EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDFC2BC5D8E300FB17DD /* ProfileView.swift */; };
 		566510972BE1C86300CE7BAA /* User Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566510962BE1C86300CE7BAA /* User Info.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,7 @@
 		2C99DDF62BC5D89F00FB17DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C99DDF82BC5D8C100FB17DD /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		2C99DDFA2BC5D8D500FB17DD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		2C99DDFC2BC5D8E300FB17DD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2C99DDFC2BC5D8E300FB17DD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		2C99DDFE2BC5D96700FB17DD /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		2C99DE002BC5D97A00FB17DD /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2CBD729A2BCB4D8F004857A7 /* CoffeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeManager.swift; sourceTree = "<group>"; };
@@ -179,12 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C99DDFB2BC5D8D500FB17DD /* SearchView.swift in Sources */,
+				5624A7892BE430B3002462EE /* ProfileView.swift in Sources */,
 				2C99DDE92BC5D6AB00FB17DD /* ContentView.swift in Sources */,
 				2C99DDF72BC5D89F00FB17DD /* HomeView.swift in Sources */,
 				2C99DDF92BC5D8C100FB17DD /* CartView.swift in Sources */,
 				2CBD729B2BCB4D8F004857A7 /* CoffeeManager.swift in Sources */,
 				566510972BE1C86300CE7BAA /* User Info.swift in Sources */,
-				2C99DDFD2BC5D8E300FB17DD /* ProfileView.swift in Sources */,
 				2C99DDE72BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift in Sources */,
 				1250AFF92BE342DC00DBF31C /* CoffeePost.swift in Sources */,
 				2C99DE012BC5D97A00FB17DD /* LogInView.swift in Sources */,
