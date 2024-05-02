@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1250AFF92BE342DC00DBF31C /* CoffeePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AFF82BE342DC00DBF31C /* CoffeePost.swift */; };
 		2C99DDE72BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDE62BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift */; };
 		2C99DDE92BC5D6AB00FB17DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDE82BC5D6AB00FB17DD /* ContentView.swift */; };
 		2C99DDEB2BC5D6AF00FB17DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C99DDEA2BC5D6AF00FB17DD /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1250AFF82BE342DC00DBF31C /* CoffeePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeePost.swift; sourceTree = "<group>"; };
 		2C99DDE32BC5D6AB00FB17DD /* CoffeeCrewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeCrewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C99DDE62BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCrewAppApp.swift; sourceTree = "<group>"; };
 		2C99DDE82BC5D6AB00FB17DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				2CBD729C2BCB4DA9004857A7 /* CoffeeSampleData.swift */,
 				2CBD729E2BCB4DC0004857A7 /* CoffeeStore.swift */,
 				566510962BE1C86300CE7BAA /* User Info.swift */,
+				1250AFF82BE342DC00DBF31C /* CoffeePost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				566510972BE1C86300CE7BAA /* User Info.swift in Sources */,
 				2C99DDFD2BC5D8E300FB17DD /* ProfileView.swift in Sources */,
 				2C99DDE72BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift in Sources */,
+				1250AFF92BE342DC00DBF31C /* CoffeePost.swift in Sources */,
 				2C99DE012BC5D97A00FB17DD /* LogInView.swift in Sources */,
 				2C99DDFF2BC5D96700FB17DD /* WelcomeView.swift in Sources */,
 				2CBD729F2BCB4DC0004857A7 /* CoffeeStore.swift in Sources */,
