@@ -31,6 +31,7 @@ struct CartView: View {
             
         }
         .padding()
+        .padding(.bottom, -30)
         .background(.brown.opacity(0.3))
         .alert(isPresented: $showClearCartAlert) {
             Alert(
@@ -154,7 +155,7 @@ struct CartView: View {
             }
             Spacer()
             NavigationLink(destination: ProfileView()) {
-                Image(systemName: "person.fill") // This icon won't navigate anywhere
+                Image(systemName: "person.fill")
             }
             Spacer()
         }
@@ -163,7 +164,7 @@ struct CartView: View {
         .font(.custom("Menlo-Regular", size: 40))
         .background(Color.brown.opacity(0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
-        .navigationBarBackButtonHidden(true) // Hide the back button
+        .navigationBarBackButtonHidden(true) 
     }
 
     

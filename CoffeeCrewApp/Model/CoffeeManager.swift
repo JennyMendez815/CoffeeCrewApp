@@ -9,6 +9,7 @@ import SwiftUI
 
 @Observable class CoffeeManager {
     var coffeeStores: [CoffeeStore] = CoffeeSampleData.stores
+    var coffeePosts: [CoffeePost] = CoffeeSampleData.posts
     
     func clearCart() {
         coffeeStores = []

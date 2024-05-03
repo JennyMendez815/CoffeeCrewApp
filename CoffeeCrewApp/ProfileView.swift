@@ -26,6 +26,7 @@ struct ProfileView: View {
             //Spacer()
         }
         .padding()
+        .padding(.bottom, -30)
         //.padding(.vertical)
         .background(Color.brown.opacity(0.3))
     }
@@ -47,7 +48,7 @@ struct ProfileView: View {
     private var profilePic: some View {
         VStack(alignment: .center) {
             Spacer()
-            Image("profile_pic") // Use the name of your image asset
+            Image("profile_pic")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 30))
@@ -96,7 +97,7 @@ struct ProfileView: View {
     
     private var profileActions: some View {
         Button(action: {
-            // Perform action for logging out
+            
         }) {
             Text("Log Out")
         }
@@ -132,7 +133,7 @@ struct ProfileView: View {
         .font(.custom("Menlo-Regular", size: 40))
         .background(Color.brown.opacity(0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
-        .navigationBarBackButtonHidden(true) // Hide the back button
+        .navigationBarBackButtonHidden(true)
     }
 
     
@@ -143,3 +144,8 @@ struct ProfileView: View {
     }
     
 }
+
+#Preview {
+    ProfileView()
+}
+

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1250AFF92BE342DC00DBF31C /* CoffeePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250AFF82BE342DC00DBF31C /* CoffeePost.swift */; };
+		12933BC32BE526B100C42541 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12933BC22BE526B100C42541 /* NewPostView.swift */; };
 		2C99DDE72BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDE62BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift */; };
 		2C99DDE92BC5D6AB00FB17DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDE82BC5D6AB00FB17DD /* ContentView.swift */; };
 		2C99DDEB2BC5D6AF00FB17DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C99DDEA2BC5D6AF00FB17DD /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		1250AFF82BE342DC00DBF31C /* CoffeePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeePost.swift; sourceTree = "<group>"; };
+		12933BC22BE526B100C42541 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		2C99DDE32BC5D6AB00FB17DD /* CoffeeCrewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeCrewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C99DDE62BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCrewAppApp.swift; sourceTree = "<group>"; };
 		2C99DDE82BC5D6AB00FB17DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				2C99DDFE2BC5D96700FB17DD /* WelcomeView.swift */,
 				2C99DE002BC5D97A00FB17DD /* LogInView.swift */,
 				2C99DDF62BC5D89F00FB17DD /* HomeView.swift */,
+				12933BC22BE526B100C42541 /* NewPostView.swift */,
 				2C99DDF82BC5D8C100FB17DD /* CartView.swift */,
 				2C99DDFA2BC5D8D500FB17DD /* SearchView.swift */,
 				2C99DDFC2BC5D8E300FB17DD /* ProfileView.swift */,
@@ -186,6 +189,7 @@
 				2CBD729B2BCB4D8F004857A7 /* CoffeeManager.swift in Sources */,
 				566510972BE1C86300CE7BAA /* User Info.swift in Sources */,
 				2C99DDE72BC5D6AB00FB17DD /* CoffeeCrewAppApp.swift in Sources */,
+				12933BC32BE526B100C42541 /* NewPostView.swift in Sources */,
 				1250AFF92BE342DC00DBF31C /* CoffeePost.swift in Sources */,
 				2C99DE012BC5D97A00FB17DD /* LogInView.swift in Sources */,
 				2C99DDFF2BC5D96700FB17DD /* WelcomeView.swift in Sources */,

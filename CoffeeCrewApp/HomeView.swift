@@ -23,24 +23,40 @@ struct TimelineView: View {
         .background(Color.brown.opacity(0.3))
     }
     
+   
+    
     private var timelineTitle: some View {
         HStack {
+            HStack {
+                Image("logo").resizable().frame(width: 40, height: 40).padding(.leading, -5)
+                Text("coffee crew").lineLimit(1)
+                
+            }
+            .foregroundColor(Color.black)
+            .padding()
+            .font(.custom("Menlo-Regular", size: 30))
+            .background(Color.brown.opacity(0.4))
+            .clipShape(RoundedRectangle(cornerRadius: 20))
             Spacer()
-            Text("timeline")
-            Spacer()
+            HStack {
+                NavigationLink(destination: NewPostView()) {
+                    Image(systemName: "mug")
+                }
+            }
+            .foregroundColor(Color.black)
+            .padding()
+            .font(.custom("Menlo-Regular", size: 30))
+            .background(Color.brown.opacity(0.4))
+            .clipShape(RoundedRectangle(cornerRadius: 20))
         }
-        .foregroundColor(Color.black)
-        .padding()
-        .font(.custom("Menlo-Regular", size: 40))
-        .background(Color.brown.opacity(0.4))
-        .clipShape(RoundedRectangle(cornerRadius: 30))
+        
     }
     
     
     private var timelineItems: some View {
         
         ScrollView {
-            ForEach(CoffeeSampleData.posts) { post in
+            ForEach(coffeeManager.coffeePosts) { post in
                 VStack {
                     HStack{
                         Text(post.user).padding(.leading, 15).font(.custom("Menlo-Regular", size: 15))
@@ -53,7 +69,13 @@ struct TimelineView: View {
                         .frame(width: 340, height: 340)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                     HStack {
-                        Image(systemName: "heart").padding(.leading, 10).padding(.top, 5).font(.custom("Menlo-Regular", size: 30))
+                        Image(systemName: "cart").padding(.leading, 10).padding(.top, 5).font(.custom("Menlo-Regular", size: 30))
+                        if (post.likes.contains("aldamajuan")) {
+                            Image(systemName: "heart.fill").padding(.top, 5).font(.custom("Menlo-Regular", size: 30))
+                        } else {
+                            Image(systemName: "heart").padding(.top, 5).font(.custom("Menlo-Regular", size: 30))
+                        }
+                        
                         Text(post.formattedLikes()).font(.custom("Menlo-Regular", size: 12)).padding(.top, 10)
                         Spacer()
                     }
@@ -81,13 +103,8 @@ struct TimelineView: View {
     
     private var timelineButtons: some View {
         HStack {
-            if false { // This condition ensures that the current view button is not clickable
-                NavigationLink(destination: TimelineView()) {
-                    Image(systemName: "house.fill")
-                }
-            } else {
-                Image(systemName: "house.fill")
-            }
+            Spacer()
+            Image(systemName: "house.fill")
             Spacer()
             NavigationLink(destination: CartView()) {
                 Image(systemName: "cart.fill")
@@ -100,19 +117,22 @@ struct TimelineView: View {
             NavigationLink(destination: ProfileView()) {
                 Image(systemName: "person.fill")
             }
+            Spacer()
         }
         .foregroundColor(Color.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 40))
         .background(Color.brown.opacity(0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
-        .navigationBarBackButtonHidden(true) // Hide the back button
+        .navigationBarBackButtonHidden(true) 
     }
+    
+   
 }
     
     
     
-    #Preview {
-        TimelineView()
-    }
+#Preview {
+    TimelineView()
+}
 
