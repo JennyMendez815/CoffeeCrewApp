@@ -76,43 +76,43 @@ struct TimelineView: View {
                 }.background(Color.brown.opacity(0.2)).clipShape(RoundedRectangle(cornerRadius: 20)).padding(.vertical, 10)
             }
         }.padding(.vertical, 5)
-    
+        
     }
     
     private var timelineButtons: some View {
         HStack {
-            Spacer()
+            if false { // This condition ensures that the current view button is not clickable
+                NavigationLink(destination: TimelineView()) {
+                    Image(systemName: "house.fill")
+                }
+            } else {
                 Image(systemName: "house.fill")
-            
+            }
             Spacer()
-            Button(action: {
-                //HomeView
-            }) {
+            NavigationLink(destination: CartView()) {
                 Image(systemName: "cart.fill")
             }
             Spacer()
-            Button(action: {
-                //SearchView
-            }) {
+            NavigationLink(destination: SearchView()) {
                 Image(systemName: "magnifyingglass")
             }
             Spacer()
-            Button(action: {
-                //ProfileView
-            }) {
+            NavigationLink(destination: ProfileView()) {
                 Image(systemName: "person.fill")
             }
-            Spacer()
-            
         }
         .foregroundColor(Color.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 40))
         .background(Color.brown.opacity(0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
+        .navigationBarBackButtonHidden(true) // Hide the back button
     }
 }
+    
+    
+    
+    #Preview {
+        TimelineView()
+    }
 
-#Preview {
-    TimelineView()
-}

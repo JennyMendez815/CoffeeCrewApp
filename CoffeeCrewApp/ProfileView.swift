@@ -22,7 +22,7 @@ struct ProfileView: View {
             Spacer()
             profileActions
             Spacer()
-            buttons
+            profileButtons
             //Spacer()
         }
         .padding()
@@ -55,9 +55,9 @@ struct ProfileView: View {
         }
         .background(Color.brown.opacity(0.2))
         .clipShape(Circle())
-
+        
     }
-                                
+    
     
     private var profileInfo: some View {
         VStack {
@@ -67,9 +67,9 @@ struct ProfileView: View {
                 .font(.custom("Menlo-Regular", size: 20))
         }
     }
-
-
-
+    
+    
+    
     private var stats: some View {
         VStack(alignment: .leading) {
             Text("about:")
@@ -107,38 +107,39 @@ struct ProfileView: View {
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
     
-    private var buttons: some View {
+    private var profileButtons: some View {
         HStack {
-            Button(action: {
-                // Navigate to HomeView
-            }) {
+            Spacer()
+            NavigationLink(destination: TimelineView()) {
                 Image(systemName: "house.fill")
             }
             Spacer()
-            Image(systemName: "cart.fill")
+            NavigationLink(destination: CartView()) {
+                Image(systemName: "cart.fill")
+            }
             Spacer()
-            Button(action: {
-                // Navigate to SearchView
-            }) {
+            NavigationLink(destination: SearchView()) {
                 Image(systemName: "magnifyingglass")
             }
             Spacer()
-            Button(action: {
-                // Navigate to ProfileView
-            }) {
-                Image(systemName: "person.fill")
+            NavigationLink(destination: ProfileView()) {
+                Image(systemName: "person.fill") // This icon won't navigate anywhere
             }
+            Spacer()
         }
         .foregroundColor(Color.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 40))
-        .background(.brown.opacity (0.4))
+        .background(Color.brown.opacity(0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
+        .navigationBarBackButtonHidden(true) // Hide the back button
     }
-}
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
+    
+    struct ProfileView_Previews: PreviewProvider {
+        static var previews: some View {
+            ProfileView()
+        }
     }
+    
 }

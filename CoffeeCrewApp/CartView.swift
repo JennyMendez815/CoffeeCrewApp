@@ -143,38 +143,29 @@ struct CartView: View {
     private var cartButtons: some View {
         HStack {
             Spacer()
-            Button(action: {
-                //HomeView
-            }) {
+            NavigationLink(destination: TimelineView()) {
                 Image(systemName: "house.fill")
             }
             Spacer()
             Image(systemName: "cart.fill")
             Spacer()
-            Button(action: {
-                //SearchView
-            }) {
+            NavigationLink(destination: SearchView()) {
                 Image(systemName: "magnifyingglass")
             }
             Spacer()
-            Button(action: {
-                //ProfileView
-            }) {
-                Image(systemName: "person.fill")
+            NavigationLink(destination: ProfileView()) {
+                Image(systemName: "person.fill") // This icon won't navigate anywhere
             }
             Spacer()
-            
         }
         .foregroundColor(Color.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 40))
-        .background(.brown.opacity (0.4))
+        .background(Color.brown.opacity(0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
+        .navigationBarBackButtonHidden(true) // Hide the back button
     }
-    
-    
-    
-    
+
     
     // Below are functions & Additional Views
     
