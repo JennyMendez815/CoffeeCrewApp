@@ -48,14 +48,19 @@ struct ProfileView: View {
     private var profilePic: some View {
         VStack(alignment: .center) {
             Spacer()
-            Image("profile_pic")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 30))
-                .padding()
+            HStack {
+                NavigationLink(destination: AddProfilePicView()) {
+                    Image("profile_pic")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .padding()
+                }
+                .background(Color.brown.opacity(0.2))
+                .clipShape(Circle())
+            }
+           
         }
-        .background(Color.brown.opacity(0.2))
-        .clipShape(Circle())
         
     }
     

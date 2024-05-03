@@ -22,6 +22,7 @@
 		2CBD729D2BCB4DA9004857A7 /* CoffeeSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBD729C2BCB4DA9004857A7 /* CoffeeSampleData.swift */; };
 		2CBD729F2BCB4DC0004857A7 /* CoffeeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBD729E2BCB4DC0004857A7 /* CoffeeStore.swift */; };
 		5624A7892BE430B3002462EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99DDFC2BC5D8E300FB17DD /* ProfileView.swift */; };
+		5624A7932BE55633002462EE /* AddProfilePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624A7922BE55633002462EE /* AddProfilePic.swift */; };
 		566510972BE1C86300CE7BAA /* User Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566510962BE1C86300CE7BAA /* User Info.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		2CBD729A2BCB4D8F004857A7 /* CoffeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeManager.swift; sourceTree = "<group>"; };
 		2CBD729C2BCB4DA9004857A7 /* CoffeeSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeSampleData.swift; sourceTree = "<group>"; };
 		2CBD729E2BCB4DC0004857A7 /* CoffeeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeStore.swift; sourceTree = "<group>"; };
+		5624A7922BE55633002462EE /* AddProfilePic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfilePic.swift; sourceTree = "<group>"; };
 		566510962BE1C86300CE7BAA /* User Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Info.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				2C99DDF82BC5D8C100FB17DD /* CartView.swift */,
 				2C99DDFA2BC5D8D500FB17DD /* SearchView.swift */,
 				2C99DDFC2BC5D8E300FB17DD /* ProfileView.swift */,
+				5624A7922BE55633002462EE /* AddProfilePic.swift */,
 				2C99DDEA2BC5D6AF00FB17DD /* Assets.xcassets */,
 				2C99DDEC2BC5D6AF00FB17DD /* Preview Content */,
 			);
@@ -195,6 +198,7 @@
 				2C99DDFF2BC5D96700FB17DD /* WelcomeView.swift in Sources */,
 				2CBD729F2BCB4DC0004857A7 /* CoffeeStore.swift in Sources */,
 				2CBD729D2BCB4DA9004857A7 /* CoffeeSampleData.swift in Sources */,
+				5624A7932BE55633002462EE /* AddProfilePic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
