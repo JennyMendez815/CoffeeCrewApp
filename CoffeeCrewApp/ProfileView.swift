@@ -13,8 +13,9 @@ struct ProfileView: View {
         VStack {
             profileTitle
             Spacer()
-            
             //Spacer()
+            profilePic
+            Spacer()
             profileInfo
             Spacer()
             stats
@@ -43,33 +44,32 @@ struct ProfileView: View {
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
     
+    private var profilePic: some View {
+        VStack(alignment: .center) {
+            Spacer()
+            Image("profile_pic") // Use the name of your image asset
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .padding()
+        }
+        .background(Color.brown.opacity(0.2))
+        .clipShape(Circle())
+
+    }
+                                
+    
     private var profileInfo: some View {
         VStack {
-            GeometryReader { geometry in
-                Image("profile_pic") // Use the name of your image asset
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
-                    .padding(.top, geometry.safeAreaInsets.top) // Adjust top padding
-                    .alignmentGuide(HorizontalAlignment.center) { _ in
-                        (geometry.size.width - 200) / 2 // Center horizontally
-                    }
-                    .alignmentGuide(VerticalAlignment.center) { _ in
-                        (geometry.size.height - 200) / 2 // Center vertically
-                    }
-            }
-            .frame(maxWidth: .infinity) // Expand the image to fill the available width
             Text("first last")
-                .font(.custom("Menlo-Regular", size: 30))
+                .font(.custom("Menlo-Regular", size: 20))
             Text("@username")
-                .font(.custom("Menlo-Regular", size: 30))
-            Spacer() // Pushes the text views to the top
+                .font(.custom("Menlo-Regular", size: 20))
         }
-        .padding()
-        .font(.custom("Menlo-Regular", size: 20))
     }
 
-    
+
+
     private var stats: some View {
         VStack(alignment: .leading) {
             Text("about:")
