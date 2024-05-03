@@ -10,6 +10,10 @@ import SwiftUI
 struct CartView: View {
     @State private var coffeeManager = CoffeeManager()
     
+    @State private var isSheetPresented = false
+    @State private var showClearCartAlert = false
+    @State private var showCheckoutAlert = false
+    
     
     var body: some View {
         VStack {
@@ -28,6 +32,20 @@ struct CartView: View {
         }
         .padding()
         .background(.brown.opacity(0.3))
+        .alert(isPresented: $showClearCartAlert) {
+            Alert(
+                title: Text("Cart is Empty!"),
+                message: Text(""),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+        .alert(isPresented: $showCheckoutAlert) {
+            Alert(
+                title: Text("Cart is Empty!"),
+                message: Text(""),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
     
     private var cartTitle: some View {
@@ -40,9 +58,12 @@ struct CartView: View {
         .foregroundColor(Color.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 40))
-        //.font(.system(size: 40, weight: .light))
         .background(.brown.opacity (0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
+        .sheet(isPresented: $isSheetPresented) {
+                    OrderProgressSheet()
+                        .presentationDetents([.fraction(0.3)])
+                }
     }
     
     
@@ -50,7 +71,8 @@ struct CartView: View {
         HStack {
             //Spacer()
             VStack (alignment: .leading){
-                ForEach(CoffeeSampleData.stores) { store in
+                //ForEach(CoffeeSampleData.stores) { store in
+                ForEach(coffeeManager.coffeeStores) { store in
                     VStack (alignment: .leading){
                         Text("\(store.name):")
                         ForEach(store.items.sorted(by: <), id: \.key) { item, price in
@@ -66,8 +88,7 @@ struct CartView: View {
         .foregroundColor(Color.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 15))
-        //.font(.system(size: 20, weight: .light))
-        .background(.brown.opacity (0.2))
+        .background(coffeeManager.coffeeStores.isEmpty ? Color.clear : Color.brown.opacity(0.2))
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
     
@@ -85,23 +106,36 @@ struct CartView: View {
     private var cartCCC: some View {
         HStack {
             Spacer()
-            Text("clear cart")
-                .foregroundColor(Color.black)
-                .padding()
-                .font(.custom("Menlo-Regular", size: 15))
-                //.font(.system(size: 20, weight: .light))
-                .background(.brown.opacity (0.4))
-                .clipShape(RoundedRectangle(cornerRadius: 30))
-            
+            Button(action: {
+                if coffeeManager.coffeeStores.isEmpty {
+                    showClearCartAlert = true
+                } else {
+                    coffeeManager.clearCart()
+                }
+            }) {
+                Text("clear cart")
+                    .foregroundColor(Color.black)
+                    .padding()
+                    .font(.custom("Menlo-Regular", size: 15))
+                    .background(.brown.opacity (0.4))
+                    .clipShape(RoundedRectangle(cornerRadius: 30))
+            }
             Spacer()
             
-            Text("checkout")
-                .foregroundColor(Color.black)
-                .padding()
-                .font(.custom("Menlo-Regular", size: 15))
-                //.font(.system(size: 20, weight: .light))
-                .background(.brown.opacity (0.4))
-                .clipShape(RoundedRectangle(cornerRadius: 30))
+            Button(action: {
+                if coffeeManager.coffeeStores.isEmpty {
+                    showCheckoutAlert = true
+                } else {
+                    isSheetPresented.toggle()
+                }
+            }){
+                Text("checkout")
+                    .foregroundColor(Color.black)
+                    .padding()
+                    .font(.custom("Menlo-Regular", size: 15))
+                    .background(.brown.opacity (0.4))
+                    .clipShape(RoundedRectangle(cornerRadius: 30))
+            }
             Spacer()
         }
     }
@@ -134,10 +168,18 @@ struct CartView: View {
         .foregroundColor(Color.black)
         .padding()
         .font(.custom("Menlo-Regular", size: 40))
-        //.font(.system(size: 40, weight: .light))
         .background(.brown.opacity (0.4))
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
+    
+    
+    
+    
+    
+    // Below are functions & Additional Views
+    
+    
+    
     
     private func calculateTotal() -> Double {
         var totalPrice = 0.0
@@ -151,6 +193,65 @@ struct CartView: View {
         return totalPrice
     }
 }
+
+
+struct OrderProgressSheet: View {
+    @State private var progress: Double = 0.0
+    @State private var timer: Timer? = nil
+    @State private var isReadyForPickUp: Bool = false
+
+    var body: some View {
+        VStack {
+            if isReadyForPickUp {
+                Text("Ready for Pick Up! ☕️")
+                    .font(.custom("Menlo-Regular", size: 24))
+                    .foregroundColor(.black)
+                    .padding(.bottom, 10)
+            } else {
+                Text("Order Progress")
+                    .font(.custom("Menlo-Regular", size: 24))
+                    .padding(.bottom, 10)
+
+                ProgressView(value: progress, total: 1.0)
+                    .progressViewStyle(LinearProgressViewStyle())
+                    .padding()
+            }
+            
+        }
+        .padding()
+        .presentationDetents([.fraction(0.3)])
+        .onAppear {
+            startProgressAnimation()
+        }
+        .onDisappear {
+            stopProgressAnimation()
+        }
+    }
+
+    
+    private func startProgressAnimation() {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                incrementProgress()
+            }
+        }
+    
+    private func stopProgressAnimation() {
+        timer?.invalidate()
+        timer = nil
+    }
+
+    private func incrementProgress() {
+        withAnimation {
+            progress += 0.1
+            if progress >= 1.0 {
+                isReadyForPickUp = true
+                stopProgressAnimation()
+            }
+        }
+    }
+}
+
+
 
 #Preview {
     CartView()

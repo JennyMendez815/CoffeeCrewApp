@@ -9,4 +9,8 @@ import SwiftUI
 
 @Observable class CoffeeManager {
     var coffeeStores: [CoffeeStore] = CoffeeSampleData.stores
+    
+    func clearCart() {
+        coffeeStores = []
+    }
 }

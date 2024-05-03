@@ -46,7 +46,8 @@ struct WelcomeView: View {
     
     private var enterButton: some View {
         NavigationLink(destination: 
-                        LogInView()
+                        TimelineView()
+                        //LogInView()
                             .navigationBarBackButtonHidden(true)
         ){
             HStack {

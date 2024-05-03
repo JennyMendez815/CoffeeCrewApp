@@ -11,8 +11,7 @@ import SwiftUI
 struct CoffeeCrewAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ProfileView()
-            //TimelineView()
+            WelcomeView()
         }
     }
 }
