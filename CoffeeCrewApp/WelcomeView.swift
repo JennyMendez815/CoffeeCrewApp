@@ -21,7 +21,9 @@ struct WelcomeView: View {
                 VStack {
                     Spacer()
                     welcomeTitle
-                    Spacer()
+                    Image("logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                     enterButton
                     Spacer()
                 }
